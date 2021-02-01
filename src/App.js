@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Tours } from "./Tours";
+// import { Tours } from "./Tours";
 import Tour from "./Tour";
 
+const url = "https://course-api.com/react-tours-project";
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [tours, setTours] = useState([]);
+  const fetchTours = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(url);
+      const tours = await response.json();
+      setIsLoading(false);
+      setTours(tours);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchTours();
+  }, []);
+  if (isLoading) {
+    return (
+      <>
+        <main>
+          <div className={"loading is-large center($size)"}>
+            <h1>Loading...</h1>
+            <div className={"loader"}></div>
+          </div>
+        </main>
+      </>
+    );
+  }
   return (
-    <>
-      <header className="App">
-        <h1>Our Tours</h1>
+    <main className={"container"}>
+      <header>
+        <h1 className={"title"}>Our Tours</h1>
+        <div className={"underline"}></div>
       </header>
-      {Tours.map((tour) => {
-        return <Tour key={tour.id} {...tour} />;
-      })}
-    </>
+      <div className={"tours"}>
+        {tours.map((tour) => {
+          return <Tour key={tour.id} {...tour} />;
+        })}
+      </div>
+    </main>
   );
 }
 
