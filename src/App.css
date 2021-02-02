@@ -28,3 +28,10 @@ h4 {
 .level-shrink {
     flex-shrink: 1;
 }
+.btn {
+    border: none;
+    margin: 0;
+}
+.blurb {
+    margin-bottom: 1rem;
+}

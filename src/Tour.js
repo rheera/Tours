@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 const Tour = ({ image, name, info, price }) => {
   const [isInterested, setIsInterested] = useState(true);
+  const [readMore, setReadMore] = useState(false);
   return (
     <>
       {isInterested && (
@@ -10,7 +11,21 @@ const Tour = ({ image, name, info, price }) => {
             <h3 className={"level-left level-shrink"}>{name}</h3>
             <h4 className={"level-right level-shrink"}>${price}</h4>
           </div>
-          <p className={"block"}>{info}</p>
+          <div className={"blurb"}>
+            {readMore ? (
+              <p className={"block"}>{info}</p>
+            ) : (
+              <p className={"block"}>
+                {info.substring(0, 200)}...
+                <button
+                  className={"btn button is-small"}
+                  onClick={() => setReadMore(!readMore)}
+                >
+                  {readMore ? "Show Less" : "Read More"}
+                </button>
+              </p>
+            )}
+          </div>
           <div className={"button-div columns"}>
             <button
               type={"button"}
