@@ -5,10 +5,10 @@ const Tour = ({ image, name, info, price }) => {
     <>
       {isInterested && (
         <article className={"single-tour box container is-max-desktop"}>
-          <img src={image}></img>
-          <div className={"columns"}>
-            <h3 className={"column is-10 subtitle is-4"}>{name}</h3>
-            <h4 className={"column is-offset-1"}>{price}</h4>
+          <img className={"tour-pics"} src={image}></img>
+          <div className={"title-price level"}>
+            <h3 className={"level-left level-shrink"}>{name}</h3>
+            <h4 className={"level-right level-shrink"}>${price}</h4>
           </div>
           <p className={"block"}>{info}</p>
           <div className={"button-div columns"}>
