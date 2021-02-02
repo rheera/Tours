@@ -13,12 +13,20 @@ const Tour = ({ image, name, info, price }) => {
           </div>
           <div className={"blurb"}>
             {readMore ? (
-              <p className={"block"}>{info}</p>
+              <p className={"block"}>
+                {info}{" "}
+                <button
+                  className={"btn button"}
+                  onClick={() => setReadMore(!readMore)}
+                >
+                  {readMore ? "Show Less" : "Read More"}
+                </button>
+              </p>
             ) : (
               <p className={"block"}>
-                {info.substring(0, 200)}...
+                {info.substring(0, 200)}...{" "}
                 <button
-                  className={"btn button is-small"}
+                  className={"btn button"}
                   onClick={() => setReadMore(!readMore)}
                 >
                   {readMore ? "Show Less" : "Read More"}
