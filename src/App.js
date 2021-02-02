@@ -37,8 +37,12 @@ function App() {
   return (
     <main className={"container"}>
       <header>
-        <h1 className={"title"}>Our Tours</h1>
-        <div className={"underline"}></div>
+        <h1 className={"title"}>
+          Our Tours{" "}
+          <progress className="progress is-info" max="100" value={"100"}>
+            15%
+          </progress>
+        </h1>
       </header>
       <div className={"tours"}>
         {tours.map((tour) => {
