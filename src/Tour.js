@@ -7,9 +7,9 @@ const Tour = ({ image, name, info, price }) => {
       {isInterested && (
         <article className={"single-tour box container is-max-desktop"}>
           <img className={"tour-pics"} src={image}></img>
-          <div className={"title-price level"}>
-            <h3 className={"level-left level-shrink"}>{name}</h3>
-            <h4 className={"level-right level-shrink"}>${price}</h4>
+          <div className={"title-price columns is-mobile"}>
+            <h3 className={"column is-10-tablet"}>{name}</h3>
+            <h4 className={"column is-2-tablet has-text-right"}>${price}</h4>
           </div>
           <div className={"blurb"}>
             {readMore ? (
@@ -34,7 +34,7 @@ const Tour = ({ image, name, info, price }) => {
               </p>
             )}
           </div>
-          <div className={"button-div columns"}>
+          <div className={"button-div has-text-centered"}>
             <button
               type={"button"}
               className={"button is-danger is-outlined"}
