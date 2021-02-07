@@ -6,7 +6,7 @@ const Tour = ({ image, name, info, price }) => {
     <>
       {isInterested && (
         <article className={"single-tour box container is-max-desktop"}>
-          <img className={"tour-pics"} src={image}></img>
+          <img className={"tour-pics"} src={image} alt={"country image"}></img>
           <div className={"title-price columns is-mobile"}>
             <h3 className={"column is-10-tablet"}>{name}</h3>
             <h4 className={"column is-2-tablet has-text-right"}>${price}</h4>
